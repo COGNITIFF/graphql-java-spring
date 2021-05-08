@@ -65,6 +65,7 @@ subprojects {
         springBootVersion = "2.1.5.RELEASE"
         jacksonVersion = "2.9.8"
         assertJVersion = "3.11.1"
+        atlassianConnectSpringBootVersion = "2.1.5"
     }
 
     repositories {

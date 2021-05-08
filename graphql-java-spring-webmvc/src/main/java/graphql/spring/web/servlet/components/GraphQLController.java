@@ -1,5 +1,6 @@
 package graphql.spring.web.servlet.components;
 
+import com.atlassian.connect.spring.ContextJwt;
 import graphql.ExecutionResult;
 import graphql.Internal;
 import graphql.spring.web.servlet.ExecutionResultHandler;
@@ -28,6 +29,7 @@ import java.util.concurrent.CompletableFuture;
 
 @RestController
 @Internal
+@ContextJwt
 public class GraphQLController {
 
     static String APPLICATION_GRAPHQL_VALUE = "application/graphql";
