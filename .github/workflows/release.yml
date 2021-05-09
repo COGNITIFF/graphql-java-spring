@@ -10,18 +10,17 @@ on:
 jobs:
   buildAndPublish:
     runs-on: ubuntu-latest
-    env:
-      MAVEN_CENTRAL_PGP_KEY: ${{ secrets.MAVEN_CENTRAL_PGP_KEY }}
-      MAVEN_CENTRAL_USER: ${{ secrets.MAVEN_CENTRAL_USER }}
-      MAVEN_CENTRAL_PASSWORD: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
-      RELEASE_VERSION: ${{ github.event.inputs.version }}
-
+    permissions:
+      contents: read
+      packages: write
     steps:
-      - uses: actions/checkout@v1
-      - uses: gradle/wrapper-validation-action@v1
-      - name: Set up JDK 1.8
-        uses: actions/setup-java@v1
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v2
         with:
-          java-version: '8.0.282'
+          java-version: '11'
+          distribution: 'adopt'
       - name: build test and publish
-        run: ./gradlew assemble && ./gradlew check --info && ./gradlew publishToSonatype closeAndReleaseSonatypeStagingRepository -x check --info --stacktrace
+        run: gradle publish
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      RELEASE_VERSION: ${{ github.event.inputs.version }}
