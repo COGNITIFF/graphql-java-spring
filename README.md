@@ -3,10 +3,7 @@
 ## Status
 
 
-Version 2.0 is released.
-
-We have a [spectrum chat](https://spectrum.chat/graphql-java) for general questions.
-
+This project is forked from graphql-java/graphql-java-spring to add support for contextJwt in atlassian-connect-spring-boot MVC apps.
 
 ## Overview
 
