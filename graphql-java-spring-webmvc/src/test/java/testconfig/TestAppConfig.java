@@ -1,5 +1,6 @@
 package testconfig;
 
+import com.atlassian.connect.spring.AtlassianHostRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import graphql.GraphQL;
 import graphql.spring.web.servlet.components.GraphQLController;
@@ -25,5 +26,9 @@ public class TestAppConfig {
     public ObjectMapper objectMapper() {
         return new ObjectMapper();
     }
+
+    @Bean
+    public AtlassianHostRepository atlassianHostRepository() {return Mockito.mock(AtlassianHostRepository.class);}
+
 
 }

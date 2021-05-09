@@ -1,0 +1,14 @@
+{
+  "key": "com.example",
+  "baseUrl": "example.com",
+  "authentication": {
+    "type": "jwt"
+  },
+  "lifecycle": {
+    "installed": "/installed",
+    "uninstalled": "/uninstalled"
+  },
+  "apiMigrations": {
+    "context-qsh": true
+  }
+}
